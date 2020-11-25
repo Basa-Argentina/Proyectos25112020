@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/commons-io-2.4-bin/commons-io-2.4/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/commons-io-2.4-bin/commons-io-2.4/commons-io-2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/commons-io-2.4-bin/commons-io-2.4/commons-io-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/commons-io-2.4-bin/commons-io-2.4/commons-io-2.4-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/commons-io-2.4-bin/commons-io-2.4/commons-io-2.4-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/itextpdf-5.3.5.jar (1)/itextpdf-5.3.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/jai_codec-1.1.3.jar/jai_codec-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/com.lowagie.text-2.1.7.jar/com.lowagie.text-2.1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/sqljdbc4-2.0.jar/sqljdbc4-2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/itext-5.5.9/itextpdf-5.5.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/itext-5.5.9/itext-pdfa-5.5.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/administrador/Downloads/itext-5.5.9/xmlworker-5.5.9.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

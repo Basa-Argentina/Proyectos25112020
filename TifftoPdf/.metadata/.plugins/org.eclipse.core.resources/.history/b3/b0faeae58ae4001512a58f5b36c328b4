@@ -1,0 +1,33 @@
+package jpegtopdf;
+
+import java.io.File;
+
+public class MainClass {
+
+	public void ficher() {
+		// TODO Auto-generated method stub
+		
+		String sDirectorio = "c:\\java\\";
+    	File f = new File(sDirectorio);
+    	if (f.exists()){
+    		// Directorio existe }
+    		File[] ficheros = f.listFiles();
+    		for (int x=0;x<ficheros.length;x++){
+    			
+    			System.out.println(ficheros[x].getName());
+    		}
+    		
+    	}
+    		else { //Directorio no existe }
+}
+	
+
+
+	}
+
+
+
+
+}
+
+

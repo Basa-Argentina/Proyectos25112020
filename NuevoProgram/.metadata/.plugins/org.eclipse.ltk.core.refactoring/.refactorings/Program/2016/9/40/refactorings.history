@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;LectorXML.java&apos; to &apos;Program/src/com.pruebi&apos;&#x0D;&#x0A;- Proyecto original: &quot;Program&quot;&#x0D;&#x0A;- Destination element: &apos;Program/src/com.pruebi&apos;&#x0D;&#x0A;- Elemento original: &apos;LectorXML.java&apos;&#x0D;&#x0A;- Actualizar referencias a elemento refactorizado" description="Mover unidad de compilacion" destination="/src&lt;com.pruebi" element1="/src&lt;{LectorXML.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1475151339445" units="1" version="1.0"/>
+</session>

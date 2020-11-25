@@ -1,0 +1,116 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+
+public class Hespañolhistorial {
+ 
+	public static void Selectsql() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, IOException{
+		Connection con = null;
+	    PreparedStatement stmt = null;
+		String surl="jdbc:sqlserver://222.15.19.138:1433;DatabaseName=basasql;SelectMethod=cursor;username=sa;password=Basa2012"; 
+		
+		String sDriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+				  
+		try {
+			  Class.forName(sDriver).newInstance();    
+			  con = DriverManager.getConnection(surl);
+			 
+			  try {
+				  
+			    stmt = con.prepareStatement("SELECT        DOCUMENTOS_DIGITALES.ID AS ID_IMAGEN,  DOCUMENTOS_DIGITALES_LOTE.FK_CLIENTES, "
+                     +"    DOCUMENTOS_DIGITALES_LOTE.FK_CAJAS, DOCUMENTOS_DIGITALES.LETRA_HASTA, "
+                     +"    DOCUMENTOS_DIGITALES.NRO_DESDE,DOCUMENTOS_DIGITALES.DIRECTORIO_PASO, DOCUMENTOS_DIGITALES.NRO_HASTA, CONVERT(char, DOCUMENTOS_DIGITALES.FECHA_DESDE, 103) "
+                     +"    AS FECHA_DESDE "
+                     +"	FROM            DOCUMENTOS_DIGITALES INNER JOIN "
+                     +"    DOCUMENTOS_DIGITALES_LOTE ON "
+                     +"    DOCUMENTOS_DIGITALES.FK_DOCUMENTOS_DIGITALES_LOTE = DOCUMENTOS_DIGITALES_LOTE.ID_DOCUMENTOS_DIGITALES_LOTE "
+                     +"	WHERE        (DOCUMENTOS_DIGITALES_LOTE.FK_CLIENTES = 155) AND (DOCUMENTOS_DIGITALES_LOTE.FK_CAJAS = 1251939)");
+			   
+			    ResultSet rs = stmt.executeQuery();
+			 
+			    while (rs.next()){
+			      System.out.println (rs.getString("ID_IMAGEN"));
+			      System.out.println (rs.getString("DIRECTORIO_PASO"));
+			      System.out.println (rs.getString("NRO_DESDE"));
+			    
+			  String paso1 = (rs.getString("ID_IMAGEN"));
+			  String paso2 = (rs.getString("DIRECTORIO_PASO"));
+			  String paso3 = (rs.getString("NRO_DESDE"));
+			
+			  copiarArch(paso1,paso2,paso3);
+			    
+			    }
+			    
+			    } catch (SQLException sqle) { 
+			      System.out.println("Error en la ejecución:" 
+			            + sqle.getErrorCode() + " " + sqle.getMessage());    
+			}
+		} finally {
+		   	
+		}
+		
+	}
+	
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, IOException {
+		Selectsql();
+}
+	
+	public static void copiarArch(String paso1, String paso2, String paso3) throws IOException{
+		
+		String PasoDisco = "C:\\ImagenesAir\\";
+		DecimalFormat formateador = new DecimalFormat("0000000000");
+		String tomato1 = "Y:/";
+		String tomato  = tomato1 + paso2+"\\"+ paso1+".pdf" ;
+		
+		
+	//	int numpaso = Integer.parseInt(paso1);
+	//	int numpaso1 = Integer.parseInt(paso2);
+		Path FROM = Paths.get(tomato);
+		
+        Path TO = Paths.get(PasoDisco+(paso1+".pdf"));
+        //Path TO = Paths.get(PasoDisco+paso1+"_"+paso2+"_"+paso3+ ".pdf");
+        
+        CopyOption[] options = new CopyOption[]{
+          StandardCopyOption.REPLACE_EXISTING,
+          StandardCopyOption.COPY_ATTRIBUTES
+        };
+        
+        File archivo = new File(tomato);
+        
+        if (archivo.exists()) {
+        	Files.copy(FROM, TO, options);
+        	System.out.println("Terminado");
+        	
+        } else{
+        	File f;
+        	f = new File(PasoDisco+"Errores.txt");
+        	//PasoDisco+"Errores.txt"
+        
+        	try{
+        	FileWriter w = new FileWriter(f,true);
+        	BufferedWriter bw = new BufferedWriter(w);
+        	PrintWriter wr = new PrintWriter(bw);  	
+        	wr.write("\r\n");
+        	wr.write(tomato);
+        	wr.append(" -");
+        	wr.close();
+        	bw.close();
+        	return;
+        	}catch(IOException e){};
+        	
+        	 }
+	}
+}

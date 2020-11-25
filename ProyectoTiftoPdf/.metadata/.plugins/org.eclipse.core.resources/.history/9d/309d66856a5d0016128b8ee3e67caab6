@@ -1,0 +1,3 @@
+PdfReader Split_PDF_Document =  nueva  PdfReader ( " CombinedPDFDocument. Pdf " ) ;
+          Documento documento; / * Para ser utilizado de forma dinámica para construir individuales archivos PDF * / 
+          PdfCopy copy; /* To import pages from Source Document */ /* Get Number of Pages in Source Document */ int number_of_pages = Split_PDF_Document. getNumberOfPages ( ) ;

@@ -1,0 +1,82 @@
+package jpegtopdf;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
+
+public class AA extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AA frame = new AA();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public AA() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JButton btnBuscarTif = new JButton("Buscar Tiffs A convertir");
+		btnBuscarTif.setForeground(Color.BLUE);
+		btnBuscarTif.setBackground(Color.WHITE);
+		btnBuscarTif.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			//	TiffToPDF sa = new TiffToPDF();
+			//	sa.main(null);
+				  }
+			
+		});
+		contentPane.add(btnBuscarTif, BorderLayout.NORTH);
+		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.setBackground(Color.WHITE);
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+						
+			}
+		});
+		contentPane.add(btnSalir, BorderLayout.SOUTH);
+		
+		JButton btnEliminar = new JButton("Eliminar Tiffs");
+		btnEliminar.setForeground(Color.RED);
+		btnEliminar.setFont(new Font("Sylfaen", Font.PLAIN, 11));
+		btnEliminar.setBackground(Color.WHITE);
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TiffToPDF tt = new TiffToPDF();
+			//	tt.eliminar1();
+				  }
+		});
+		contentPane.add(btnEliminar, BorderLayout.CENTER);
+	}
+
+}

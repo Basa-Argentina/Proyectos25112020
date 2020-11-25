@@ -1,0 +1,154 @@
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Tiff {
+	
+	 static String Paso = "C:\\Para_Subir\\"; 
+	 static String Paso2 ="C:\\Archivos_Digitales\\pdf\\";
+	
+	 public static void mover(String ficheros){
+		File fichero = new File(Paso + ficheros);
+		System.out.println(Paso + ficheros);
+		
+		try {
+			
+	if (fichero.renameTo(new File(Paso2 + ficheros)))
+		System.out.println("Fichero movido");
+	 String Paso3 = Paso2+ficheros;
+	 String Paso31 = ficheros.substring(13,ficheros.length()-4);
+	 System.out.println(Paso3);
+	 actualizar(Paso3,Paso31);
+
+	 //else
+	 // System.out.println("No se pudo mover el fichero");
+		} catch (Exception e) {
+			// TODO: handle exception
+			 System.out.println("No se pudo mover el fichero");
+		}
+	}
+	public static void main(String[] args) {
+		
+		//mover();
+		leerDirectorio();
+	}
+	
+	//public static void pasosql(String paso3){
+		
+		public static void actualizar(String paso3, String paso31) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
+			Connection con = null;
+			PreparedStatement stmt = null;   
+			String surl="jdbc:sqlserver://222.15.19.134:1433;DatabaseName=godoycruz;SelectMethod=cursor;username=sa;password=Sicuyo123"; 
+			String sDriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+				System.out.println(paso3);  
+			
+				try {
+					  Class.forName(sDriver).newInstance();    
+					  con = DriverManager.getConnection(surl);
+					 
+					  try {
+					    // La Query
+						 
+					    stmt = con.prepareStatement("SELECT  elemento_id FROM referencia WHERE elemento_id  = "+paso31+"" );
+					    ResultSet rs = stmt.executeQuery();
+					 
+						// Recorremos el resultado
+					    while (rs.next()){
+					     // System.out.println (rs.getString("id"));
+					      String pasa = (rs.getString("elemento_id"));
+					      System.out.println(pasa + " Esto es pasa");
+					    
+					     // System.out.println(paso3.substring(35,paso3.length()-4));
+					  if ( !((pasa = paso31) ==null) ){
+						  try {
+								Class.forName(sDriver).newInstance();
+								con = DriverManager.getConnection(surl);
+								
+								  try {
+						  
+						//System.out.println(paso3.substring(13,paso3.length()-4));
+						  String sql = "update referencia  set   pathLegajo=? where elemento_id= "+pasa+" ";
+
+						  PreparedStatement preparedStatement =
+						          con.prepareStatement(sql);
+						  System.out.println(paso3 + " Esto es paso3 ");
+							//	int numEntero = Integer.valueOf(pasa);;
+						 preparedStatement.setString( 1 , paso3);
+						//  preparedStatement.setString(2,paso3 );
+						
+
+						  int rowsAffected = preparedStatement.executeUpdate();
+						  System.out.println("Actualizado");
+								  } catch (SQLException sqle) { 
+								      System.out.println("Error en la ejecución:" 
+								            + sqle.getErrorCode() + " " + sqle.getMessage());    
+								}
+							} finally {
+							    // ... cleanup that will execute whether or not an error occurred ...
+							}
+						  
+					  }
+					    	
+					    	//leerDir("NuevaCarpeta");
+					    break;
+					    }
+					    } catch (SQLException sqle) { 
+					      System.out.println("Error en la ejecución:" 
+					            + sqle.getErrorCode() + " " + sqle.getMessage());    
+					}
+				} finally {
+				    // ... cleanup that will execute whether or not an error occurred ...
+				}
+				/*try {
+				Class.forName(sDriver).newInstance();
+				con = DriverManager.getConnection(surl);
+				
+				  try {
+					  
+					  String sql = "update Student  set   name=? where studentid = 1  ";
+
+					  PreparedStatement preparedStatement =
+					          con.prepareStatement(sql);
+
+
+					 preparedStatement.setString(1, paso3);
+					//  preparedStatement.setString(2,paso3 );
+					System.out.println();
+
+					  int rowsAffected = preparedStatement.executeUpdate();
+					  System.out.println("Actualizado");
+					
+					  
+					    } catch (SQLException sqle) { 
+					      System.out.println("Error en la ejecución:" 
+					            + sqle.getErrorCode() + " " + sqle.getMessage());    
+					}
+				} finally {
+				    // ... cleanup that will execute whether or not an error occurred ...
+				}*/
+					  
+  }
+					  
+				  
+	
+
+	public static void leerDirectorio(){
+		File dir = new File("C:\\Para_Subir\\");
+		   
+		String[] ficheros = dir.list();
+		   
+		   
+		if (ficheros == null)
+			System.out.println("No hay ficheros en el directorio especificado");
+		else { 
+			for (int x=0;x<ficheros.length;x++){
+				System.out.println(ficheros[x]);
+			//	String Id=ficheros[x].substring(13,ficheros[x].length()-4);
+				mover(ficheros[x]);
+			}
+		}
+	}
+}

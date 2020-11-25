@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/com/dividato/configuracionGeneral"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry exported="true" kind="lib" path="D:/Proyectos/LIBRERIAS/jar_files/commons-logging-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Proyectos/LIBRERIAS/jar_files/fontbox-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Proyectos/LIBRERIAS/jar_files/pdfbox-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Proyectos/LIBRERIAS/jar_files/pdfbox-debugger-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Proyectos/LIBRERIAS/jar_files/pdfbox-tools-2.0.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Proyectos/LIBRERIAS/itextpdf-5.3.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Proyectos/LIBRERIAS/sqljdbc4-2.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Proyectos/LIBRERIAS/nio.jar"/>
+	<classpathentry kind="lib" path="D:/Proyectos/LIBRERIAS/java-util-1.3.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,27 @@
+package jpegtopdf;
+import java.io.*;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
+public class MultiaSinglePdf {  
+     public static void main(String[] args){
+        try {
+          PdfReader Split_PDF_Document = new PdfReader("C:/Users/administrador/Desktop/"
+          		+ "Pdf/0005273714 DA PRA ALBERTO MARIO.pdf");
+          Document document; 
+          PdfCopy copy;           
+          int number_of_pages = Split_PDF_Document.getNumberOfPages();
+          for (int i = 0; i < number_of_pages; ) {
+                  document = new Document();
+                  String FileName="File"+ ++i+".pdf";                     
+                  copy = new PdfCopy(document,new FileOutputStream(FileName));
+                  document.open();                
+                  copy.addPage(copy.getImportedPage(Split_PDF_Document, i));              
+                  document.close();
+                                }
+        }
+        catch (Exception i)
+        {
+            System.out.println(i);
+        }
+    }
+}

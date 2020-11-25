@@ -1,0 +1,81 @@
+!SESSION 2016-04-04 10:42:01.376 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2016-04-04 10:42:07.909
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2016-04-04 10:42:07.909
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6ec6409d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.team.svn.ui.command.EditPropertiesCommand,Show Properties,
+		,
+		Category(org.eclipse.team.svn.ui.command.category,SVN,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@19bc3c3c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 5 2016-04-04 10:42:13.732
+!MESSAGE The configuration download failed. Version: 1.0.1.v20150913-0716
+!STACK 0
+org.apache.http.client.HttpResponseException: Proxy Authentication Required ( Forefront TMG requiere autorizaciÃ³n para satisfacer la solicitud. Se ha denegado el acceso al filtro de proxy web.  )
+	at org.eclipse.epp.internal.logging.aeri.ui.utils.Responses$ProgressMonitorResponseHandler.handleResponse(Responses.java:49)
+	at org.eclipse.epp.internal.logging.aeri.ui.utils.Responses$ProgressMonitorResponseStringHandler.handleResponse(Responses.java:71)
+	at org.eclipse.epp.internal.logging.aeri.ui.utils.Responses$ProgressMonitorResponseStringHandler.handleResponse(Responses.java:1)
+	at org.apache.http.client.fluent.Response.handleResponse(Response.java:90)
+	at org.eclipse.epp.internal.logging.aeri.ui.utils.Responses.getContentWithProgress(Responses.java:323)
+	at org.eclipse.epp.internal.logging.aeri.ui.v2.AeriServer.refreshConfiguration(AeriServer.java:74)
+	at org.eclipse.epp.internal.logging.aeri.ide.Startup.initializeServerAndConfiguration(Startup.java:211)
+	at org.eclipse.epp.internal.logging.aeri.ide.Startup.access$4(Startup.java:201)
+	at org.eclipse.epp.internal.logging.aeri.ide.Startup$1.run(Startup.java:98)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 29 2016-04-04 10:42:13.734
+!MESSAGE Startup failed, AERI is disabled until next restart. Version: 1.0.1.v20150913-0716
+!STACK 0
+java.lang.RuntimeException: org.apache.http.client.HttpResponseException: Proxy Authentication Required ( Forefront TMG requiere autorizaciÃ³n para satisfacer la solicitud. Se ha denegado el acceso al filtro de proxy web.  )
+	at com.google.common.base.Throwables.propagate(Throwables.java:160)
+	at org.eclipse.epp.internal.logging.aeri.ide.Startup.initializeServerAndConfiguration(Startup.java:219)
+	at org.eclipse.epp.internal.logging.aeri.ide.Startup.access$4(Startup.java:201)
+	at org.eclipse.epp.internal.logging.aeri.ide.Startup$1.run(Startup.java:98)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: org.apache.http.client.HttpResponseException: Proxy Authentication Required ( Forefront TMG requiere autorizaciÃ³n para satisfacer la solicitud. Se ha denegado el acceso al filtro de proxy web.  )
+	at org.eclipse.epp.internal.logging.aeri.ui.utils.Responses$ProgressMonitorResponseHandler.handleResponse(Responses.java:49)
+	at org.eclipse.epp.internal.logging.aeri.ui.utils.Responses$ProgressMonitorResponseStringHandler.handleResponse(Responses.java:71)
+	at org.eclipse.epp.internal.logging.aeri.ui.utils.Responses$ProgressMonitorResponseStringHandler.handleResponse(Responses.java:1)
+	at org.apache.http.client.fluent.Response.handleResponse(Response.java:90)
+	at org.eclipse.epp.internal.logging.aeri.ui.utils.Responses.getContentWithProgress(Responses.java:323)
+	at org.eclipse.epp.internal.logging.aeri.ui.v2.AeriServer.refreshConfiguration(AeriServer.java:74)
+	at org.eclipse.epp.internal.logging.aeri.ide.Startup.initializeServerAndConfiguration(Startup.java:211)
+	... 3 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-04-04 10:42:13.947
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\administrador'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.net 1 0 2016-04-04 10:42:15.872
+!MESSAGE System property http.proxyHost is set to 222.15.19.252 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2016-04-04 10:42:15.873
+!MESSAGE System property http.proxyPort is set to 8080 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2016-04-04 10:42:15.896
+!MESSAGE System property http.proxyHost is set to 222.15.19.252 but should not be set.
+
+!ENTRY org.eclipse.core.net 1 0 2016-04-04 10:42:15.897
+!MESSAGE System property http.proxyPort is set to 8080 but should not be set.
